@@ -1,0 +1,192 @@
+<div class="container-fluid" style="overflow: hidden">
+    <div class="row flex-nowrap">
+        <div id="sidebar" class="col-auto sidebar collapse collapse-horizontal show" style="height: 100vh">
+            <app-menu></app-menu>
+            <!-- </div> -->
+        </div>
+        <main class="col" style="height: 100vh; overflow: scroll; overflow-x: hidden">
+            <nav class="bg-danger navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <h1 style="width: 20px"></h1>
+                <a href="#" class="sidebar-toggler flex-shrink-0" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                    aria-expanded="false" aria-controls="collapseWidthExample">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+                <div class="d-flex justify-content-end w-100">
+                    <app-header></app-header>
+                </div>
+            </nav>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4 py-2">
+                    <div class="col-sm-12">
+                        <div class="bg-light rounded p-4">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3>La liste des électeurs</h3>
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-4">
+                                    <div class="d-none d-md-flex ms-4">
+                                        <i class="bx bx-search icon fa-2x py-1"></i>
+                                        <input
+                                            class="form-control border-0 border-2 border-start border-end border-alert"
+                                            [(ngModel)]="searhText"
+                                            type="search" placeholder="Rechercher..." />
+                                    </div>
+                                </div>
+
+                                <!--  -->
+                                <div class="row re" style="margin-left: auto; margin-right: auto; margin-top: 10px">
+                                    <div class="col d-flex justify-content-between">
+                                        <!-- Button trigger modal -->
+                                        <button type="submit" class="ajout" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop" style="height: 40px">
+                                            Importer la liste
+                                        </button>
+
+                                        <!-- Modal de modif -->
+                                        <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <form>
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="staticBackdropLabel">
+                                                                La liste de agent du service administrative
+                                                            </h5>
+                                                            <button type="button" class="btn-close"
+                                                                data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <div class="form-group">
+
+                                                                <div class="input-box">
+                                                                    <Label>Ajouter image *</Label>
+                                                                    <input type="file" placeholder="Logo.jpg" id="image"
+                                                                        name="image" class="form-control"
+                                                                        accept="image/png, image/jpeg, image/jpg"
+                                                                        required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="input-box">
+                                                                    <span> Libelle *</span>
+                                                                    <input type="text" class="form-control"
+                                                                        name="libelle" id="libelle"
+                                                                        placeholder="Donner le nom du ministère"
+                                                                        required />
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="input-box">
+                                                                    <span> Description *</span>
+                                                                    <textarea type="text" class="form-control"
+                                                                        name="description" id="description"
+                                                                        placeholder="Donner une petite description du ministère"></textarea>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                Annuler
+                                                            </button>
+                                                            <button type="submit" class="btn-primary">
+                                                                Actualiser
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                            La liste de agent du service administrative
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="form">
+                                                            <div class="input-box">
+                                                                <Label>Importer un fichier excel *</Label>
+                                                                <div class="input-group mb-3">
+                                                                    <input type="file" class="form-control" id="inputGroupFile02">
+                                                                    <label class="input-group-text" for="inputGroupFile02"></label>
+                                                                  </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                         <button type="button" class="btn-primary">
+                                                            Ajouter
+                                                        </button>
+                                                        <button type="button" class="btn-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            Annuler
+                                                        </button>
+                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--  -->
+
+                            </div>
+                            <div class="chart-container py-2">
+                                <div class="header_fixed py-2">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Nom</th>
+                                                <th>N° Biométrique</th>
+                                                <th>Date de naissance</th>
+                                                <th>Email</th>
+                                                <th>Sexe</th>
+                                                <th>N° Téléphone</th>
+                                                <th>Rôle</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr *ngFor=" let util of unutilisateur | paginate:{itemsPerPage: 5, currentPage: p}
+                    |filter:searhText; let i = index ">
+                                                <td>{{util.username}}</td>
+                                                <td>{{util.biometrie}}</td>
+                                                <td>{{util.datenaissance}}</td>
+                                                <td>{{util.email}}</td>
+                                                <td>{{util.sexe}}</td>
+                                                <td>{{util.telephone}}</td>
+                                                <td>{{util.roles[0].name}}</td>
+
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pag">
+                                    <pagination-controls (pageChange)="p = $event" nextLabel="Suivants"
+                                        previousLabel="Précedents" [responsive]="responsive"></pagination-controls>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </main>
+    </div>
+</div>

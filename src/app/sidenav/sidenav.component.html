@@ -1,0 +1,165 @@
+<div class="navbar-nav align-items-center ms-auto">
+  <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <i class="fa fa-bell me-lg-2"></i>
+      <span class="d-none d-lg-inline-flex">Notifications</span>
+    </a>
+    <div
+      class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"
+    >
+    <div href="#" class="dropdown-item"  >
+      <div class="d-flex align-items-center">
+        <img
+          class="rounded-circle"
+          src="/iededz"
+          alt="" srcset=""
+          style="width: 40px; height: 40px"
+        />
+        <div class="ms-2">
+          <h6 class="fw-normal mb-0">Mr.. vient de publier dans le </h6>
+          <small>notif info</small>
+        </div>
+      
+      </div>
+      <hr class="dropdown-divider" />
+    </div>
+     
+   
+    </div>
+  </div>
+
+  <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+      <img
+        class="rounded-circle me-lg-2" 
+        src=""
+        alt=""
+        style="width: 40px; height: 40px"
+      />
+      <span class="d-none d-lg-inline-flex"></span>
+    </a>
+    <div
+      class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0"
+    >
+      <a href="#" class="dropdown-item"
+      data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop3"
+      >Mon Profile</a>
+      <button  class="btn btn-danger" (click)="logout()"
+        >Déconnexion</button
+      >
+    </div>
+  </div>
+
+
+     <!-- Modal de modif -->
+     <div
+     class="modal fade"
+     id="staticBackdrop3"
+     data-bs-backdrop="static"
+     data-bs-keyboard="false"
+     tabindex="-1"
+     aria-labelledby="staticBackdropLabel"
+     aria-hidden="true"
+   >
+     <div class="modal-dialog">
+       <div class="modal-content">
+        <form
+        #updateForm="ngForm"
+         >
+         <div class="modal-header">
+           <h5 class="modal-title" id="staticBackdropLabel">
+             Information du compte Admin
+           </h5>
+           <button
+             type="button"
+             class="btn-close"
+             data-bs-dismiss="modal"
+             aria-label="Close"
+           ></button>
+         </div>
+         <div class="modal-body">
+    
+          <div class="form-group">
+             <div class="input-box">
+               <span> Nom d'utilisateur *</span>
+               <input
+                 type="text"
+                 class="form-control"
+                 name="username"
+                 id="username"
+                 placeholder="Entrez votre nom"
+                 
+                 
+                 required
+               />
+             </div>
+          </div>
+          <div class="form-group">
+            <div class="input-box">
+              <span> Téléphone *</span>
+              <input
+                type="text"
+                class="form-control"
+                name="numero"
+                id="numero"
+                placeholder="Entrez votre nom"
+                
+                
+                required
+              />
+            </div>
+         </div>
+         <div class="form-group">
+          <div class="input-box">
+            <span> Email *</span>
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="email"
+              placeholder="******@gmail.com"
+              
+              
+              required
+            />
+          </div>
+       </div>
+       <div class="form-group">
+        <div class="input-box">
+          <span> Adresse</span>
+          <input
+            type="text"
+            class="form-control"
+            name="addresse"
+            id="addresse"
+            placeholder="Entrer votre adresse"
+            
+            
+            required
+          />
+        </div>
+     </div>
+         </div>
+         <div class="modal-footer">
+           <button
+             type="button"
+             class="btn-secondary"
+             data-bs-dismiss="modal"
+             style="width: 85px; border-radius: 10px; height: 35px;"
+           >
+             Annuler
+           </button>
+           <button
+             type="submit"
+             class="btn-primary"
+             style="width: 90px; border-radius: 10px; background-color: #63C4FE; color: white; height: 35px;"
+           >
+             Modifier
+           </button>
+         </div>
+        </form>
+       </div>
+     </div>
+   </div>
+</div>

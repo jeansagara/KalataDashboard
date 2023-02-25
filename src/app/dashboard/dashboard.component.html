@@ -1,0 +1,218 @@
+<div class="container-fluid" style="overflow: hidden">
+  <div class="row flex-nowrap">
+    <div id="sidebar" class="col-auto sidebar collapse collapse-horizontal show" style="height: 100vh">
+      <app-menu></app-menu>
+
+    </div>
+    <main class="col" style="height: 100vh; overflow: scroll; overflow-x: hidden">
+      <nav class="bg-danger navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+        <h1 style="width: 20px"></h1>
+        <a href="#" class="sidebar-toggler flex-shrink-0" data-bs-toggle="collapse" data-bs-target="#sidebar"
+          aria-expanded="false" aria-controls="collapseWidthExample">
+          <i class="fa fa-bars"></i>
+        </a>
+        <div class="d-flex justify-content-end w-100">
+          <app-sidenav></app-sidenav>
+        </div>
+
+      </nav>
+      <div class="container-fluid pt-4 px-4">
+        <div class="row g-4">
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <img src="../../assets/ministere2.png" height="50" width="50" style="text-align: center; padding-top: 5px"
+                alt="" srcset="" />
+              <div class="ms-3">
+                <p class="mb-2">Total Candidats</p>
+                <h6 class="mb-0">{{totals}}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <img src="../../assets/idee1.png" height="50" width="50" style="text-align: center; padding-top: 5px"
+                alt="" srcset="" />
+              <div class="ms-3">
+                <p class="mb-2">Total Election</p>
+                <h6 class="mb-0">{{nbreElection}}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <img src="../../assets/comment.png" height="50" width="50" style="text-align: center; padding-top: 5px"
+                alt="" srcset="" />
+              <div class="ms-3">
+                <p class="mb-2">Types de votes</p>
+                <h6 class="mb-0">{{affichertypevotes}}</h6>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-xl-3">
+            <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <i class="bx bxs-user-circle fa-3x" style="color: black"></i>
+              <div class="ms-3">
+                <p class="mb-2">Totals de votes</p>
+                <h6 class="mb-0">{{affichertoutlenombredevotes}}</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row re" style="margin-left: auto; margin-right: auto; margin-top: 10px">
+        <div class="col d-flex justify-content-between">
+          <!-- Button trigger modal -->
+          <button type="submit" class="ajout" data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+            style="height: 40px">
+            Ajouter un candidats
+          </button>
+
+
+          <!-- Modal -->
+          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Création d'une candidat
+                  </h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                  <div class="input-box">
+                    <Label>Choix de type *</Label>
+                    <select class="form-select" aria-label="Default select example" name="id_election"
+                      [(ngModel)]="spec">
+                      <option selected>Choisissez le type de vote</option>
+                      <option *ngFor="let e of affichertypevote" value="{{e.idtypevote}}">{{e.nom}}</option>
+
+                    </select>
+                  </div>
+
+                  <div class="input-box">
+                    <span> Nom du candidat*</span>
+                    <input type="text" class="form-control" name="libelle" id="libelle"
+                      placeholder="Donner le nom du candidat" required name="nomcandidat"
+                      [(ngModel)]="ajoutModel.nomcandidat" />
+                  </div>
+
+                  <div class="input-box">
+                    <span> Nom du parti*</span>
+                    <input type="text" class="form-control" name="libelle" id="libelle"
+                      placeholder="Donner le nom du parti" required name="nomparti"
+                      [(ngModel)]="this.ajoutModel.nomparti" />
+                  </div>
+
+                  <div class="form">
+                    <div class="input-box">
+                      <Label>Ajouter image du candidat *</Label>
+                      <input type="file" placeholder="Logo.jpg" id="logo" name="image" class="form-control"
+                        accept="image/png, image/jpeg, image/jpg" required (change)="chargeImagecandidat($event)" />
+                    </div>
+                  </div>
+
+                  <div class="form">
+                    <div class="input-box">
+                      <Label>Ajouter image du parti *</Label>
+                      <input type="file" placeholder="Logo.jpg" id="logo" name="image" class="form-control"
+                        accept="image/png, image/jpeg, image/jpg" required (change)="chargeImageparti($event)" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="modal-footer">
+                  <button type="button" class="btn-primary" (click)="AjouterCandidat()">
+                    Ajouter
+                  </button>
+                  <button type="button" class="btn-secondary" data-bs-dismiss="modal">
+                    Annuler
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="container-fluid pt-4 px-4" style="margin-left: -2.2%; width: 104%">
+        <div class="row g-4">
+          <div class="col-sm-12 col-xl-8">
+            <div class="bg-light text-center rounded p-4">
+              <div class="d-flex justify-content-between">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <h6 class="mb-0 py-1">La liste des candidats</h6>
+                </div>
+                <div class="col-md-4">
+                  <div class="d-none d-md-flex ms-4">
+                    <i class="bx bx-search icon fa-2x py-1"></i>
+                    <input class="form-control border-0 border-2 border-start border-end border-alert" type="search"
+                      [(ngModel)]="searhText" placeholder="Rechercher..." />
+                  </div>
+                </div>
+              </div>
+              <div class="header_fixed py-2">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Nom.Can</th>
+                      <th>Image. Can</th>
+                      <th>Nom.Parti</th>
+                      <th>Image. Parti</th>
+                      <th>Action</th>
+
+                      <!-- <th>Action</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- pagination -->
+                    <tr *ngFor="let candidat of Total | paginate:{itemsPerPage: 5, currentPage: p}
+                    |filter:searhText; let i = index ">
+                      <!-- pagination -->
+
+                      <td>{{candidat.nomcandidat}}</td>
+                      <td><img src="{{candidat.imagecandidat}}" alt="" /></td>
+                      <td>{{candidat.nomparti}}</td>
+                      <td><img src="{{candidat.imageparti}}" alt="" /></td>
+
+                      <td>
+                        <div class="col" style="display: flex">
+                          <i data-bs-toggle="modal" data-bs-target="#staticBackdrop2" class="bi bi-pencil-square i"
+                            style="color: rgb(58, 190, 31); font-size: 20px"></i>
+
+                          &nbsp; &nbsp; &nbsp; &nbsp;
+
+                          <i
+                            (click)="supprimer(candidat.idcandidat)"
+                            class="bi bi-trash3"
+                            style="color: red; font-size: 20px"
+                          >
+                          </i>
+
+                        </div>
+                      </td>
+
+                      <!-- <td><button>View</button></td> -->
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+              <div class="pag">
+                <pagination-controls (pageChange)="p = $event" nextLabel="Suivants" previousLabel="Précedents"
+                  [responsive]="responsive"></pagination-controls>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <app-footer></app-footer>
+    </main>
+  </div>
+</div>

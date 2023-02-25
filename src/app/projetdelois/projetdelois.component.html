@@ -1,0 +1,250 @@
+<div class="container-fluid" style="overflow: hidden">
+    <div class="row flex-nowrap">
+        <div id="sidebar" class="col-auto sidebar collapse collapse-horizontal show" style="height: 100vh">
+            <app-menu></app-menu>
+            <!-- </div> -->
+        </div>
+        <main class="col" style="height: 100vh; overflow: scroll; overflow-x: hidden">
+            <nav class="bg-danger navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
+                <h1 style="width: 20px"></h1>
+                <a href="#" class="sidebar-toggler flex-shrink-0" data-bs-toggle="collapse" data-bs-target="#sidebar"
+                    aria-expanded="false" aria-controls="collapseWidthExample">
+                    <i class="fa fa-bars"></i>
+                </a>
+
+                <div class="d-flex justify-content-end w-100">
+                    <app-header></app-header>
+                </div>
+            </nav>
+
+            <div class="container-fluid pt-4 px-4">
+                <div class="row g-4 py-2">
+                    <div class="col-sm-12">
+                        <div class="bg-light rounded p-4">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3>Projet de loi</h3>
+                                </div>
+                                <!-- <div class="col-md-2"></div> -->
+                                <div class="col-md-4">
+                                    <div class="d-none d-md-flex ms-4">
+                                        <i class="bx bx-search icon fa-2x py-1"></i>
+                                        <input
+                                            class="form-control border-0 border-2 border-start border-end border-alert"
+                                            type="search" placeholder="Rechercher..." />
+                                    </div>
+                                </div>
+
+                                <!--  -->
+                                <div class="row re" style="margin-left: auto; margin-right: auto; margin-top: 10px">
+                                    <div class="col d-flex justify-content-between">
+                                        <!-- Button trigger modal -->
+                                        <button type="submit" class="ajout" data-bs-toggle="modal"
+                                            data-bs-target="#staticBackdrop" style="height: 40px">
+                                            Ajouter un projet de lois
+                                        </button>
+
+                                        <!-- Modal de modif -->
+
+
+                                        <!-- Modal -->
+                                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                            aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="staticBackdropLabel">
+                                                            Création d'une Election
+                                                        </h5>
+                                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                            aria-label="Close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <div class="input-box">
+                                                            <Label>Choix de type *</Label>
+                                                            <select class="form-select"
+                                                                aria-label="Default select example" name="id_election"
+                                                                [(ngModel)]="spec">
+                                                                <option selected>Choisissez le type de vote</option>
+                                                                <option *ngFor="let e of affichertypevote"
+                                                                    value="{{e.idtypevote}}">{{e.nom}}</option>
+
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="input-box">
+                                                            <span> Titre *</span>
+                                                            <input type="text" class="form-control" name="libelle"
+                                                                id="libelle" [(ngModel)]="ajoutModel.titre"
+                                                                placeholder="Donner le titre du projet" required />
+                                                        </div>
+
+                                                        <div class="input-box">
+                                                            <span> Description *</span>
+                                                            <textarea type="text" class="form-control"
+                                                                name="description" id="description"
+                                                                [(ngModel)]="ajoutModel.description"
+                                                                placeholder="Donner une petite description sur le projet"
+                                                                required></textarea>
+                                                        </div>
+
+                                                        <div class="input-box">
+                                                            <span> Date debut *</span>
+                                                            <input type="date" class="form-control" name="description"
+                                                                id="description" [(ngModel)]="ajoutModel.datedebut1"
+                                                                placeholder="Donner une petite description sur le projet"
+                                                                required>
+                                                        </div>
+
+                                                        <div class="input-box">
+                                                            <span> Date fin *</span>
+                                                            <input type="date" class="form-control" name="description"
+                                                                id="description" [(ngModel)]="ajoutModel.datefin1"
+                                                                placeholder="Donner une petite description sur le projet"
+                                                                required>
+                                                        </div>
+
+                                                         <!--  -->
+                                                         <div class="input-box">
+                                                            <span> Heure début *</span>
+                                                            <input type="time" class="form-control" name="description"
+                                                                id="description"
+                                                                placeholder="Donner une petite description sur l'election"
+                                                                required [(ngModel)]="ajoutModel.heuredebut">
+                                                        </div>
+
+                                                        <div class="input-box">
+                                                            <span> Heure fin *</span>
+                                                            <input type="time" class="form-control" name="description"
+                                                                id="description"
+                                                                placeholder="Donner une petite description sur l'election"
+                                                                required [(ngModel)]="ajoutModel.heurefin">
+                                                        </div>
+                                                        <!--  -->
+
+                                                        <div class="input-box">
+                                                            <span> Nbre d'Elus *</span>
+                                                            <input type="number" class="form-control" name="libelle"
+                                                                id="libelle" placeholder="Donner le nom du projet"
+                                                                required [(ngModel)]="ajoutModel.nbredeselus" />
+                                                        </div>
+
+                                                        <div class="form">
+                                                            <div class="input-box">
+                                                                <Label>Ajouter image *</Label>
+                                                                <input type="file" placeholder="Logo.jpg" id="logo"
+                                                                    name="image" class="form-control"
+                                                                    accept="image/png, image/jpeg, image/jpg"
+                                                                    (change)="chargeImagelection($event)" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="modal-footer">
+                                                        <button type="submit" (click)="AjouterProjet()"
+                                                            class="btn-primary">
+                                                            Ajouter
+                                                        </button>
+                                                        <button type="button" class="btn-secondary"
+                                                            data-bs-dismiss="modal">
+                                                            Annuler
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--  -->
+
+                            </div>
+                            <div class="chart-container py-2">
+                                <div class="header_fixed py-2">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Description</th>
+                                                <th>Image</th>
+                                                <th>datedebut1</th>
+                                                <th>datefin1</th>
+                                                <th>nbredeselus</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor=" let oneProjet of projet">
+                                                <td>{{oneProjet.titre}}</td>
+                                                <td>{{oneProjet.descrption}}</td>
+                                                <td><img src="{{oneProjet.image}}" alt=""></td>
+                                                <td>{{oneProjet.datedebut}}</td>
+                                                <td>{{oneProjet.datefin}}</td>
+                                                <td>{{oneProjet.nbredeselus}}</td>
+                                                <td>{{oneProjet.status}}</td>
+
+                                                <td>
+
+                                                    <div class="col" style="display: flex">
+                                                        <i data-bs-toggle="modal" data-bs-target="#staticBackdrop2"
+                                                            class="bi bi-pencil-square i"
+                                                            style="color: rgb(58, 190, 31); font-size: 20px"></i>
+
+                                                        &nbsp; &nbsp; &nbsp; &nbsp;
+
+                                                        <i (click)="supprimer(oneProjet.idAdministration)"
+                                                            class="bi bi-trash3" style="color: red; font-size: 20px">
+                                                        </i>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="pag">
+                                    <pagination-controls></pagination-controls>
+                                </div>
+                                
+                            </div>
+                            <div class="chart-container py-2">
+                                <div class="header_fixed py-2">
+                                    <div class="col-md-8">
+                                    <h3>Résultat de vote</h3>
+                                </div>
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>Nbr de voix (POUR)</th>
+                                                <th>Nbr de voix (CONTRE)</th>
+                                                <th>Nbr de voix (NEUTRE)</th>
+                                                <th>Total de vote</th>
+                                                
+            
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+            
+                                            <tr *ngFor=" let oneProjet of projet">
+                                                <td>{{oneProjet.pour}}</td>
+                                                <td>{{oneProjet.contre}}</td>
+                                                <td>{{oneProjet.neutre}}</td>
+                                                <td>{{oneProjet.totalvote}}</td>
+                                                
+            
+            
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <app-footer></app-footer>
+        </main>
+    </div>
+</div>
