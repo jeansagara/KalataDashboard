@@ -115,27 +115,30 @@
                                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                             aria-label="Close"></button>
                                                     </div>
-                                                    <div class="modal-body">
-                                                        <div class="form">
-                                                            <div class="input-box">
-                                                                <Label>Importer un fichier excel *</Label>
-                                                                <div class="input-group mb-3">
-                                                                    <input type="file" class="form-control" id="inputGroupFile02">
-                                                                    <label class="input-group-text" for="inputGroupFile02"></label>
-                                                                  </div>
+                                                    <form (submit)="importElecteur()">
+
+                                                        <div class="modal-body">
+                                                            <div class="form">
+                                                                <div class="input-box">
+                                                                    <Label>Importer un fichier excel *</Label>
+                                                                    <div class="input-group mb-3">
+                                                                        <input type="file" class="form-control" id="inputGroupFile02" (change)="chargeExcelelection($event)">
+                                                                        <label class="input-group-text" for="inputGroupFile02" ></label>
+                                                                      </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                         <button type="button" class="btn-primary">
-                                                            Ajouter
-                                                        </button>
-                                                        <button type="button" class="btn-secondary"
-                                                            data-bs-dismiss="modal">
-                                                            Annuler
-                                                        </button>
-                                                       
-                                                    </div>
+                                                        <div class="modal-footer">
+                                                             <button type="submit" class="btn-primary">
+                                                                Ajouter
+                                                            </button>
+                                                            <button type="button" class="btn-secondary"
+                                                                data-bs-dismiss="modal">
+                                                                Annuler
+                                                            </button>
+                                                           
+                                                        </div>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>

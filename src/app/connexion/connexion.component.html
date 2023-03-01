@@ -1,7 +1,12 @@
 <div class="container-fluid"
   style="background-image: url('../../assets/ordinateur-portable-icone-isometrique-code-programme-developpement-logiciels-applications-programmation-neon-sombre_39422-971.avif');">
   <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+    <!-- <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4"> -->
+<div class="row" style="background-color: #E5BB7A;">
+      <div class="col-6 image" style="text-align:center;">
+        <img src="../../assets/images/kalata.png" alt="" style="height: 150px; margin-left:15%; border-radius: 12px;" />
+      </div>
+      <div class="col-4">
       <form novalidate>
         <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
           <div class="d-flex align-items-center justify-content-between mb-3">
@@ -32,8 +37,8 @@
             }
           </style>
           <div class="form-floating mb-3">
-            <input type="text" [(ngModel)]="form.biometrieOrTelephone" name="usernameOrEmail" required class="form-control" id="floatingInput"
-              placeholder="name@example.com">
+            <input type="text" [(ngModel)]="form.biometrieOrTelephone" name="usernameOrEmail" required
+              class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">Votre Email ou Pseudo</label>
           </div>
           <div class="form-floating mb-4">
@@ -45,6 +50,8 @@
         </div>
 
       </form>
+
+    </div>
       <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ roles }}.
       </div>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { CandidatsService } from '../Service/candidats.service';
 import { ElectionsService } from '../Service/elections.service';
+import { UtilisateursService } from '../Service/utilisateurs.service';
 import { VotesService } from '../Service/votes.service';
 
 @Component({
@@ -59,11 +60,13 @@ Candidats:any=[]
 // afficher tous les elections
   Allelection: any;
   nbreElection: any;
+  unutilisateur: any;
+  unutilisateurs: any;
 // afficher tous les elections
 
 
     // methode d'afficher
- constructor(private candidats:CandidatsService, private vote:VotesService, private election: ElectionsService){}
+ constructor(private candidats:CandidatsService, private serv: UtilisateursService, private vote:VotesService, private election: ElectionsService){}
 
    // methode d'afficher
  ngOnInit(){
@@ -87,6 +90,12 @@ Candidats:any=[]
     this.nbreElection = data.length
     console.log(this.nbreElection)
 
+  })
+  // afficher la liste totale des electeurs
+  this.serv.getlistuser().subscribe(data => {
+    this.unutilisateur = data;
+    this.unutilisateurs = data.length
+    console.log(data)
   })
 
  }
@@ -126,6 +135,8 @@ AjouterCandidat(){
               showConfirmButton: false,
               timer: 1500
             })
+            location.reload();
+
 }
   electionid(nomcandidat: any, nomparti: any, icandidat: any, iparti: any, electionid: any) {
     throw new Error('Method not implemented.');

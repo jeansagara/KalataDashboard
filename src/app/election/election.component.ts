@@ -118,6 +118,8 @@ AjouterElection(){
               showConfirmButton: false,
               timer: 1500
             })
+            location.reload();
+
 }
 
 ///////////////////////// fin Ajout du election attribu ////////////////////////
@@ -149,7 +151,7 @@ popUp(idelection: any) {
       this.election
         .deleteelection(idelection)
         .subscribe((data) => {
-          //location.reload();
+          // location.reload();
           console.log('okkk');
         });
 

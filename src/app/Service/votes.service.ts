@@ -52,24 +52,32 @@ export class VotesService {
 
 
   // METHODE PERMETTANT D'AJOUTER UN TYPE D'ELECTION (ELCTION OU PROJET)
-  ajoutertypedevote(nom:any): Observable<any> {
+  ajoutertypedevote(nom: any): Observable<any> {
     const data = new FormData();
     data.append("nom", nom)
-    return this.http.post(`http://localhost:8080/typevote/ajouter`,data)
+    return this.http.post(`http://localhost:8080/typevote/ajouter`, data)
   }
 
 
-    //METHODE PERMETTANT DE SUPPRIMER UN TYPE DE VOTE
-deletecandidat(id:number) {
-  return this.http.delete(` http://localhost:8080/typevote/supprimer/${id}`)
+  //METHODE PERMETTANT DE SUPPRIMER UN TYPE DE VOTE
+  deletecandidat(id: number) {
+    return this.http.delete(` http://localhost:8080/typevote/supprimer/${id}`)
 
-}
+  }
 
-    //METHODE PERMETTANT DE SUPPRIMER UN CANDIDAT
-    deletevote(idvote:number) {
-      return this.http.delete(`http://localhost:8080/api/elections/supprimer/${idvote}`)
-    
-    }
+  //METHODE PERMETTANT DE SUPPRIMER UN CANDIDAT
+  deletevote(idvote: number) {
+    return this.http.delete(`http://localhost:8080/api/elections/supprimer/${idvote}`)
+
+  }
+
+  // METHODE PERMETTANT D'IMPORTER LA LISTE DES ELECTEURS POUR LE PROJET DE LOIS)
+  importerfichierexcel(excel: File): Observable<any> {
+    const data = new FormData();
+    data.append("excel", excel)
+    return this.http.post(`http://localhost:8080/api/auth/electeur`, data)
+  }
+
 
 
 

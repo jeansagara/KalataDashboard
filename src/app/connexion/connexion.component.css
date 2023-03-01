@@ -1,0 +1,10 @@
+.tout{
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+img{
+    width: 80% !important;
+    height: 100% !important;
+    margin-top: -40PX;
+}

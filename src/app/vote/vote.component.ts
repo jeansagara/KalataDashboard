@@ -46,6 +46,7 @@ AjouterTypeVote(){
             showConfirmButton: false,
             timer: 1500
           })
+          location.reload();
 }
 
 
@@ -53,6 +54,7 @@ AjouterTypeVote(){
 // Methode permettant de supprimer un vote
 supprimer(idvote: any) {
   this.popUp(idvote);
+  
 }
 
 popUp(idvote: any) {

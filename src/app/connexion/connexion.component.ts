@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { AuthService } from '../Service/auth.service';
 import { StorageService } from '../Service/storage.service';
 
@@ -41,13 +42,25 @@ export class ConnexionComponent {
     this.ttt.login(biometrieOrTelephone, password).subscribe({
       next: data => {
         this.auth.saveUser(data);
-        this.router.navigateByUrl('/dashboard')
         this.isLoginFailed = false;
-        this.isLoggedIn = true;
         this.roles = this.auth.getUser().roles;
-
-        
+        if(this.roles[0]=="ROLE_ADMIN"){
+          this.isLoggedIn = true;
+          this.router.navigateByUrl('/dashboard')
+        }else{
+          Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: 'Your work has been saved',
+            showConfirmButton: true,
+            // timer: 1500
+          })
+        }
       },
+      error:err=>{
+        this.errorMessage = err.error.message;
+        this.isLoginFailed=true;
+      }
     });
   }
 
