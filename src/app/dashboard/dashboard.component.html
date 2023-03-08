@@ -20,8 +20,8 @@
         <div class="row g-4">
           <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-              <img src="../../assets/ministere2.png" height="50" width="50" style="text-align: center; padding-top: 5px"
-                alt="" srcset="" />
+              <img src="../../assets/images/candidats.png" height="50" width="50"
+                style="text-align: center; padding-top: 5px" alt="" srcset="" />
               <div class="ms-3">
                 <p class="mb-2">Total Candidats</p>
                 <h6 class="mb-0">{{totals}}</h6>
@@ -30,8 +30,8 @@
           </div>
           <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-              <img src="../../assets/idee1.png" height="50" width="50" style="text-align: center; padding-top: 5px"
-                alt="" srcset="" />
+              <img src="../../assets/images/debat.png" height="50" width="50"
+              style="text-align: center; padding-top: 5px" alt="" srcset="" />
               <div class="ms-3">
                 <p class="mb-2">Total Electeurs</p>
                 <h6 class="mb-0">{{unutilisateurs}}</h6>
@@ -40,8 +40,8 @@
           </div>
           <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
-              <img src="../../assets/comment.png" height="50" width="50" style="text-align: center; padding-top: 5px"
-                alt="" srcset="" />
+              <img src="../../assets/images/debat.png" height="50" width="50"
+              style="text-align: center; padding-top: 5px" alt="" srcset="" />
               <div class="ms-3">
                 <p class="mb-2">Types de votes</p>
                 <h6 class="mb-0">{{affichertypevotes}}</h6>
@@ -50,6 +50,8 @@
           </div>
           <div class="col-sm-6 col-xl-3">
             <div class="bg-light rounded d-flex align-items-center justify-content-between p-4">
+              <img src="../../assets/images/hand.png" height="50" width="50"
+                style="text-align: center; padding-top: 5px" alt="" srcset="" />
               <i class="bx bxs-user-circle fa-3x" style="color: black"></i>
               <div class="ms-3">
                 <p class="mb-2">Totals de votes</p>
@@ -185,11 +187,8 @@
 
                           &nbsp; &nbsp; &nbsp; &nbsp;
 
-                          <i
-                            (click)="supprimer(candidat.idcandidat)"
-                            class="bi bi-trash3"
-                            style="color: red; font-size: 20px"
-                          >
+                          <i (click)="supprimer(candidat.idcandidat)" class="bi bi-trash3"
+                            style="color: red; font-size: 20px">
                           </i>
 
                         </div>
