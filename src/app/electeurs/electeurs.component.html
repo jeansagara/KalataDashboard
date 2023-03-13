@@ -165,7 +165,7 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr *ngFor=" let util of unutilisateur | paginate:{itemsPerPage: 5, currentPage: p}
+                                            <tr *ngFor=" let util of unutilisateur | paginate:{itemsPerPage: 10, currentPage: p}
                     |filter:searhText; let i = index ">
                                                 <td>{{util.username}}</td>
                                                 <td>{{util.biometrie}}</td>
